@@ -148,6 +148,8 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void*)
 
 JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* , void*)
 {
+    delete WTF::comSunWebkitFileSystem;
+    WTF::comSunWebkitFileSystem = 0;
 #if PLATFORM(JAVA_WIN) && !defined(NDEBUG)
     _CrtDumpMemoryLeaks();
 #endif
